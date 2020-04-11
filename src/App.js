@@ -1,0 +1,30 @@
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
+import { Route, Switch, withRouter } from 'react-router-dom';
+
+//Routes
+import HomeContainer from './Container/HomeContainer';
+
+
+
+
+const My404 = () => {
+  return (
+    <div>
+      ...error...
+    </div>
+  )
+}
+
+  return (
+    <main>
+      <Switch>
+        <Route exact path="/" component={ HomeContainer } />
+        <Route component={ My404 } />
+      </Switch>
+    </main>
+  )
+}
+
+export default App;
