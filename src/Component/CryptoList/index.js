@@ -5,28 +5,31 @@ const CryptoList = (props) => {
   console.log(props,"this is props")
 
   const allCrypto = props.allCrypto.map(crypto => {
-    var clicked = () => {
-      var result = "border col-3 my-1"
-      console.log('---',result);
-      return result
-    }
-    var hi = clicked()
+    let card = 'border col-4 pd-1';
+    let icon = 'https://static.coincap.io/assets/icons/' + `${crypto.symbol.toLowerCase()}` + '@2x.png'
+    let price = Number(crypto.priceUsd).toFixed(2);
+    let changes = Number(crypto.changePercent24Hr).toFixed(2);
+
     return(
-      <div className={`${hi}`}>
-       {crypto.id}
+      <div className={`${card}`}>
+        <div><Link to={`/${crypto.id}`}>{crypto.id}</Link></div>
+        <div>{crypto.symbol}</div>
+        <div><img src={`${icon}`} style={{ height: 50, width: 50 }} onError={(e)=>{e.target.onerror = null; e.target.src="../no-camera.png"}}/></div>
+        <div><span className="mr-1">$</span>{price}</div>
+        <div>{changes >= 0 ?
+              <div className="text-primary">{changes}<span className="ml-1">%</span></div> :
+              <div className="text-danger">{changes}<span className="ml-1">%</span></div> }</div>
+        <div></div>
+        <div></div>
       </div>
     )
   })
 
   return (
-    <div className="container border">
-      <div className="">
-        <h1>Report List</h1>
-        <button>4 Row view</button>
-      </div>
-        <div className="row">
+    <div className="container">
+      <div className="row">
         {allCrypto}
-        </div>
+      </div>
     </div>
   )
 }

@@ -5,7 +5,7 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 
 //Routes
 import HomeContainer from './Container/HomeContainer';
-
+import ShowContainer from './Container/ShowContainer';
 
 
 
@@ -22,6 +22,7 @@ const App = () => {
     <main>
       <Switch>
         <Route exact path="/" component={ HomeContainer } />
+        <Route exact path="/:id" component={ ShowContainer } />
         <Route component={ My404 } />
       </Switch>
     </main>
