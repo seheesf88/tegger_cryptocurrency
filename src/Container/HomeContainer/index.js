@@ -7,8 +7,9 @@ class HomeContainer extends Component {
     super()
     this.state = {
       allCrypto: [],
-      toggle: true
+      toggle: {toggle: true}
     }
+   this.changeView = this.changeView.bind(this);
   }
 
   componentDidMount(){
@@ -35,8 +36,18 @@ class HomeContainer extends Component {
       }
    }
 
-   changeView = async(e) => {
-     return "border col-5 pd-1"
+   changeView = async() => {
+     try{
+       console.log('toggle: ',this.state.toggle);
+       this.setState(state => ({
+         toggle: !state.toggle
+       }));
+     }catch(err){
+       console.log(err);
+       return err
+     }
+
+     // return "border col-5 pd-1"
    }
 
 
@@ -50,7 +61,7 @@ class HomeContainer extends Component {
               <button onClick={this.changeView}>
                 {this.state.toggle ? 'ON' : 'OFF'}
               </button>
-              <CryptoList allCrypto={this.state.allCrypto} changeView={this.changeView()}/>
+              <CryptoList allCrypto={this.state.allCrypto} changeView={this.state.toggle}/>
             </div>
           </div>
         </div>

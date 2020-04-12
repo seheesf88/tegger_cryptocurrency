@@ -3,7 +3,12 @@ import { Link } from 'react-router-dom'
 
 const CryptoList = (props) => {
   console.log(props.changeView,"this is props")
-  let card = 'border col-4 pd-1';
+    let card = 'border col-4 pd-1';
+  if(props.changeView){
+    card = 'border col-3 pd-1';
+  }else{
+    card = 'border col-4 pd-1';
+  }
   const allCrypto = props.allCrypto.map(crypto => {
     let icon = 'https://static.coincap.io/assets/icons/' + `${crypto.symbol.toLowerCase()}` + '@2x.png'
     let price = Number(crypto.priceUsd).toFixed(2);

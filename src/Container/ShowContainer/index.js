@@ -65,25 +65,20 @@ class ShowContainer extends Component {
     }
 
   render(){
-//     const data = [
-//   {y: 10.00, x: 1},
-//   {y: 12.01, x: 2},
-//   {y: 13.02, x: 3},
-//   {y: 13.00, x: 4},
-//   {y: 8.00, x: 5},
-//   {y: 9.00, x: 6},
-//   {y: 16.00, x: 7},
-// ];
     const data = [];
+    // const date = [];
     let range = 0;
 
     let history = this.state.history.slice(this.state.history.length -30, this.state.history.length -1 )
+
+    console.log('what is history',history);
     for(let i = 0; i < history.length; i++){
       let ele = history[i];
       let price = Number(ele.priceUsd).toFixed(2);
-
-
-      data.push({y:price, x:range})
+      console.log(price);
+      let time = new Date(ele.date.slice(0,10).split('-').join('/'));
+      data.push({x:range, y:price})
+      console.log(time);
       range += 1
     }
     console.log(data);
