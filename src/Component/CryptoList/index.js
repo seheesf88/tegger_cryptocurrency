@@ -2,10 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 const CryptoList = (props) => {
-  console.log(props,"this is props")
-
+  console.log(props.changeView,"this is props")
+  let card = 'border col-4 pd-1';
   const allCrypto = props.allCrypto.map(crypto => {
-    let card = 'border col-4 pd-1';
     let icon = 'https://static.coincap.io/assets/icons/' + `${crypto.symbol.toLowerCase()}` + '@2x.png'
     let price = Number(crypto.priceUsd).toFixed(2);
     let changes = Number(crypto.changePercent24Hr).toFixed(2);

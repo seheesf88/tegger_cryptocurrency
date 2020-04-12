@@ -107,6 +107,31 @@ class ShowContainer extends Component {
             title={'Price($USD)'}
             />
         </XYPlot>
+
+        <div className="container my-5 py-5">
+          <div className="row">
+            <div className="col-5">
+              <h3>Crypto Profile</h3>
+              <div className="">
+                <span>Id : </span><span>{this.state.crypto.id}</span>
+              </div>
+              <div className="">
+                <span>Name : </span><span>{this.state.crypto.id}</span>
+              </div>
+              <div className="">
+                <span>Rank : </span><span>{this.state.crypto.id}</span>
+              </div>
+              <div className="">
+                <span>Supply : </span><span>{this.state.crypto.id}</span>
+              </div>
+              <div className="">
+                <span>Max Supply : </span><span>{this.state.crypto.id}</span>
+              </div>
+            </div>
+            <div className="col-5 border offset-1">
+            </div>
+          </div>
+        </div>
       </div>
     )
   }

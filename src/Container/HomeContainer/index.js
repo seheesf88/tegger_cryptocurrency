@@ -6,7 +6,8 @@ class HomeContainer extends Component {
   constructor(){
     super()
     this.state = {
-      allCrypto: []
+      allCrypto: [],
+      toggle: true
     }
   }
 
@@ -34,6 +35,10 @@ class HomeContainer extends Component {
       }
    }
 
+   changeView = async(e) => {
+     return "border col-5 pd-1"
+   }
+
 
   render(){
     return (
@@ -42,7 +47,10 @@ class HomeContainer extends Component {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <CryptoList allCrypto={this.state.allCrypto}/>
+              <button onClick={this.changeView}>
+                {this.state.toggle ? 'ON' : 'OFF'}
+              </button>
+              <CryptoList allCrypto={this.state.allCrypto} changeView={this.changeView()}/>
             </div>
           </div>
         </div>
