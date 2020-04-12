@@ -88,8 +88,10 @@ class HomeContainer extends Component {
   render(){
 
     return (
-      <div>
-        예배하네
+      <div className="container">
+        <div className="row ml-6">Find my crypto</div>
+        <input className="form-control"/>
+        <button className="btn btn-primary">Search</button>
       </div>
     )
   }

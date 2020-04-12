@@ -17,6 +17,7 @@ const My404 = () => {
   )
 }
 
+const App = () => {
   return (
     <main>
       <Switch>
