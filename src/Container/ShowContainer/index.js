@@ -108,21 +108,9 @@ class ShowContainer extends Component {
       // date.push(time)
       range += 1
     }
-    // // console.log('this is market', this.state.market);
-    // function exchangeMarket(arr){
-    //   let marketData = [];
-    //   // let markets = this.state.market;
-    //   for(let i = 0; i < arr.length; i++){
-    //     let market = arr[i];
-    //     let exchange = market.exchangeId
-    //     // marketData.push(exchange)
-    //     return exchange
-    //
-    //   }
-    //
-    // }
-    //
-    // console.log(exchangeMarket(this.state.market));
+
+    let changePercent = Number(this.state.crypto.changePercent24Hr).toFixed(2)
+    console.log('@@@@', this.state.crypto);
 
     return (
       <div>
@@ -150,10 +138,10 @@ class ShowContainer extends Component {
           </XYPlot>
         </div>
 
-          <div className="row">
+          <div className="row mb-5">
             <div className="col-5 container my-3 ml-1">
-              <div className="h4 row p-3 border">Crypto Profile</div>
-                <div className="row">
+              <div className="h4 row p-3 bg-dark text-light">Crypto Profile</div>
+                <div className="row mt-5">
                   <div className="col-4">
                     <div className="mb-1">Id : </div>
                     <div className="mb-1">Name : </div>
@@ -170,19 +158,22 @@ class ShowContainer extends Component {
                   </div>
                 </div>
               </div>
-            <div className="col-5 ml-2 container border my-5 py-5">
-              <div className="row">
-                <div className="col-5">
+            <div className="col-5 ml-2 container mt-3 py-5">
+              <div className="display-3 row ml-3">
+                <span className="mx-2">$</span>
+                <span>{Number(this.state.crypto.priceUsd).toFixed(2)}</span>
+              </div>
+              <div className="h4 mt-5 ml-5">
+                <span>{
+                  changePercent < 0 ?
+                  <span className="text-danger">{changePercent}<span>%</span></span> :
+                  <span className="text-primary">{changePercent}<span>%</span></span>
+                }</span>
 
-                </div>
-                <div className="col-5 offset-1"></div>
               </div>
             </div>
           </div>
         </div>
-
-
-
     </div>
     )
   }
