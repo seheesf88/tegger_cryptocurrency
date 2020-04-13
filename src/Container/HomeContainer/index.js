@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import CryptoList from './../../Component/CryptoList'
+import Nav from './../Nav';
 
 class HomeContainer extends Component {
   constructor(){
@@ -53,14 +54,20 @@ class HomeContainer extends Component {
 
   render(){
     return (
-      <div className="border border-primary text-center">
-        <h1 className="">Cryptocurrency</h1>
+      <div>
+        <Nav />
         <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <button onClick={this.changeView}>
-                {this.state.toggle ? 'ON' : 'OFF'}
+          <div className="row mt-3 mb-4"><div className="display-3">Cryptocurrency</div></div>
+          <div className="row container mt-5">
+            <div className="row ml-1">
+              <button
+                onClick={this.changeView}
+                className="btn btn-outline-dark"
+              >
+                {this.state.toggle ? <span className="px-1">3 Columns</span> : <span className="px-1">4 Columns</span>}
               </button>
+            </div>
+            <div className="row mt-3">
               <CryptoList allCrypto={this.state.allCrypto} changeView={this.state.toggle}/>
             </div>
           </div>
